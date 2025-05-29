@@ -7,10 +7,10 @@ from sklearn.preprocessing import MultiLabelBinarizer
 
 # Load saved artifacts
 def load_artifacts():
-    model = joblib.load('laptop_price_model.pkl')
-    preprocessor = joblib.load('preprocessor.joblib')
-    mlb = joblib.load('multilabel_binarizer.joblib')
-    feature_columns = joblib.load('feature_columns.joblib')
+    model = joblib.load('models/laptop_price_model.pkl')
+    preprocessor = joblib.load('models/preprocessor.joblib')
+    mlb = joblib.load('models/multilabel_binarizer.joblib')
+    feature_columns = joblib.load('models/feature_columns.joblib')
     return model, preprocessor, mlb, feature_columns
 
 # Preprocessing functions matching Colab notebook
