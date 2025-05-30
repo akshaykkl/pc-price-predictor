@@ -4,7 +4,36 @@ import numpy as np
 import joblib
 import re
 from sklearn.preprocessing import MultiLabelBinarizer
+import requests
+from datetime import datetime
 
+# Function to get current exchange rates
+def get_exchange_rates():
+    try:
+        # Using ExchangeRate-API (you might want to use a proper API key in production)
+        response = requests.get("https://api.exchangerate-api.com/v4/latest/TRY")
+        if response.status_code == 200:
+            data = response.json()
+            print("Exchange rates fetched successfully.", data['rates'])
+            return data['rates']
+        else:
+            st.warning("Couldn't fetch live exchange rates. Using default rates.")
+            return {
+                'USD': 0.033,
+                'EUR': 0.030,
+                'GBP': 0.026,
+                'JPY': 4.92,
+                'AED': 0.12
+            }
+    except:
+        st.warning("Couldn't fetch live exchange rates. Using default rates.")
+        return {
+            'USD': 0.033,
+            'EUR': 0.030,
+            'GBP': 0.026,
+            'JPY': 4.92,
+            'AED': 0.12
+        }
 # Load saved artifacts
 def load_artifacts():
     model = joblib.load('models/laptop_price_model.pkl')
@@ -231,10 +260,30 @@ def main():
         
         # Make prediction
         prediction = model.predict(processed_data)[0]
+
+        # Convert prediction to Turkish Lira (TRY) if needed
+        exchange_rates = get_exchange_rates()
         
         # Display results
         st.subheader("Prediction Result")
-        st.metric(label="Estimated Price", value=f"₺{prediction:,.2f}")
+        col1, col2 = st.columns([1,2])
+        with col1:
+            st.metric(label="Predicted Price (TRY)", value=f"{prediction:,.2f} ₺")
+        with col2:
+            st.markdown("Converted to other currrency rates:")
+            currencies = {
+                'INR': '₹',
+                'USD': '$',
+                'EUR': '€',
+                'AED': 'AED',
+                'JPY': '¥',
+                'GBP': '£',
+            }
+            for currency, symbol in currencies.items():
+                if currency in exchange_rates:
+                    converted_price = prediction * exchange_rates[currency]
+                    st.metric(label=f"Predicted Price ({symbol})", value=f"{converted_price:,.2f} {symbol}")
+        st.caption(f"Exchange rates are fetched live as of {datetime.now().strftime('%d-%m-%Y %H:%M')}.")
         
         # Show raw input for verification
         st.subheader("Processed Input Features")

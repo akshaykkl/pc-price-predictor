@@ -10,6 +10,7 @@ A **Streamlit web app** that predicts **PC prices** based on hardware specificat
 - 📊 Trained on real-world Turkish PC listings
 - 🖱️ Interactive & intuitive UI with Streamlit
 - 🧩 Easily expandable with new features (e.g., SSD/HDD, brand, screen size)
+- 💱 Available currency transformations to some of the common countries.
 
 ## 📦 Installation
 
