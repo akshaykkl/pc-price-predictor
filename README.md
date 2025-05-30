@@ -50,8 +50,8 @@ Optionally, explore how changing different components affects the price.
 ## 🧠 Model Details
 
 - **Algorithm:** [e.g., Random Forest Regressor / XGBoost / Linear Regression]
-- **Dataset Source:** Turkish e-commerce PC listings
-- **Preprocessing:** Cleaned data, label encoding for categorical features, feature scaling
+- **Dataset Source:** Turkish e-commerce PC listings Kaggle
+- **Preprocessing:** Cleaned and Translated data, label encoding for categorical features, feature scaling
 
 ### Performance:
 
@@ -75,7 +75,7 @@ Optionally, explore how changing different components affects the price.
 
 ## 💡 Future Improvements
 
-- Add currency converter for international users
+- Add currency converter for international users with options
 - Include more brands and newer models
 - Add charts and analytics for price trends
 - Deploy the app online with Streamlit Cloud or Hugging Face Spaces
