@@ -75,7 +75,7 @@ Optionally, explore how changing different components affects the price.
 ## ⚠️ Notes
 
 - The model is trained on Turkish-market data, so predictions are tuned to prices in Turkey and may not generalize globally.
-- Ensure all component names are entered correctly for accurate predictions.
+- Ensure components  are entered for approximate predictions.
 
 ## 💡 Future Improvements
 
