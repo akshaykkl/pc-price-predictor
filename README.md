@@ -49,7 +49,7 @@ Optionally, explore how changing different components affects the price.
 
 ## 🧠 Model Details
 
-- **Algorithm:** [e.g., Random Forest Regressor / XGBoost / Linear Regression]
+- **Algorithm:**  Random Forest Regressor 
 - **Dataset Source:** Turkish e-commerce PC listings Kaggle
 - **Preprocessing:** Cleaned and Translated data, label encoding for categorical features, feature scaling
 
