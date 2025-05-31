@@ -65,6 +65,10 @@ Optionally, explore how changing different components affects the price.
 - RAM size
 - Storage (type & size)
 - Screen resolution
+- Brand
+- Graphics
+- OS
+- Connections
 
 
 
