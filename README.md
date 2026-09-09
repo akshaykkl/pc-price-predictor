@@ -1,4 +1,4 @@
-````markdown
+
 # 💻 PC Price Predictor
 
 A **Streamlit web app** that predicts **PC prices** based on hardware specifications like CPU, GPU, RAM, etc., using a machine learning model trained on a Turkish dataset.
